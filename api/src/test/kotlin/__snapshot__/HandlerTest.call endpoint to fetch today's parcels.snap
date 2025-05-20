@@ -1,0 +1,11 @@
+{
+    "parcels": [
+        {
+            "id": "P001",
+            "status": "IN_TRANSIT",
+            "weight": 2.3,
+            "postCode": "0465",
+            "address": "123 Main St"
+        }
+    ]
+}

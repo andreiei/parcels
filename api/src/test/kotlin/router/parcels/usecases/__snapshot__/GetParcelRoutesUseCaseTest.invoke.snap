@@ -1,0 +1,74 @@
+[
+    {
+        "id": "R001",
+        "stops": [
+            {
+                "id": "REDACTED",
+                "address": "2nd Street",
+                "parcels": [
+                    "P00"
+                ]
+            },
+            {
+                "id": "REDACTED",
+                "address": "123 Main St",
+                "parcels": [
+                    "P05",
+                    "P010"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "R002",
+        "stops": [
+            {
+                "id": "REDACTED",
+                "address": "123 Main St",
+                "parcels": [
+                    "P01",
+                    "P06"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "R003",
+        "stops": [
+            {
+                "id": "REDACTED",
+                "address": "123 Main St",
+                "parcels": [
+                    "P02",
+                    "P07"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "R004",
+        "stops": [
+            {
+                "id": "REDACTED",
+                "address": "123 Main St",
+                "parcels": [
+                    "P03",
+                    "P08"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "R005",
+        "stops": [
+            {
+                "id": "REDACTED",
+                "address": "123 Main St",
+                "parcels": [
+                    "P04",
+                    "P09"
+                ]
+            }
+        ]
+    }
+]

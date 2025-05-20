@@ -1,2 +1,3 @@
-# parcels
-Parcels Rest API
+# Parcels
+
+Parcels Rest API, simple implementation written in Kotlin.

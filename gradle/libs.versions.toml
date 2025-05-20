@@ -1,0 +1,39 @@
+[versions]
+kotlin = "2.1.20"
+ktlint = "0.50.0"
+kotest = "5.9.1"
+kotlinxSerialization = "1.6.3"
+annotations = "24.1.0"
+mockk = "1.14.2"
+netty = "4.2.1.Final"
+kotlinSnapshot = "2.3.0"
+
+[plugins]
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.10.0" }
+spotless = { id = "com.diffplug.spotless", version = "6.25.0" }
+
+[libraries]
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+
+serialization-kotlinx-core-jvm = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core-jvm", version.ref = "kotlinxSerialization" }
+serialization-kotlinx-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json-jvm", version.ref = "kotlinxSerialization" }
+
+annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
+
+aws-lambda-java-core = { group = "com.amazonaws", name = "aws-lambda-java-core", version = "1.2.3" }
+aws-lambda-java-events = { group = "com.amazonaws", name = "aws-lambda-java-events", version = "3.15.0" }
+
+netty = { group = "io.netty", name = "netty-codec-http", version.ref = "netty" }
+
+test-kotest-assertions-shared = { group = "io.kotest", name = "kotest-assertions-shared-jvm", version.ref = "kotest" }
+test-kotest-common = { group = "io.kotest", name = "kotest-common-jvm", version.ref = "kotest" }
+test-kotest-framework-api = { group = "io.kotest", name = "kotest-framework-api-jvm", version.ref = "kotest" }
+test-kotest-runner = { group = "io.kotest", name = "kotest-runner-junit5-jvm", version.ref = "kotest" }
+test-snapshot = { group = "com.karumi.kotlinsnapshot", name = "core", version.ref = "kotlinSnapshot" }
+
+mockk-jvm = { group = "io.mockk", name = "mockk-jvm", version.ref = "mockk" }
+mockk-dsl-jvm = { group = "io.mockk", name = "mockk-dsl-jvm", version.ref = "mockk" }
+

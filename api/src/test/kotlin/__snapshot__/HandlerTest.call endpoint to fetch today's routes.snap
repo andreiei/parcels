@@ -1,0 +1,14 @@
+[
+    {
+        "id": "R001",
+        "stops": [
+            {
+                "id": "REDACTED",
+                "address": "123 Main St",
+                "parcels": [
+                    "P001"
+                ]
+            }
+        ]
+    }
+]
