@@ -1,0 +1,9 @@
+{
+    "domain.com": "valid",
+    "subdomain.domain.com": "valid",
+    "sub-domain.domain.com": "valid",
+    "domain": "Invalid",
+    "@domain": "Invalid",
+    "domain..com": "Invalid",
+    "peter@-domain.com": "Invalid"
+}

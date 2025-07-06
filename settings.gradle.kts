@@ -1,3 +1,3 @@
-rootProject.name = "parcels"
+rootProject.name = "domains"
 
-include("api")
+include("app")

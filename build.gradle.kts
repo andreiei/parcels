@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -31,8 +32,8 @@ allprojects {
     }
 
     tasks.withType<KotlinCompile>().all {
-        kotlinOptions {
-            jvmTarget = "17"
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
     tasks.withType<Test> {
@@ -44,17 +45,8 @@ allprojects {
         }
     }
 
-    tasks.register("runSpotlessApply", org.gradle.api.DefaultTask::class.java) {
-        dependsOn("spotlessApply")
-        doLast {
-            exec {
-                workingDir(project.rootDir)
-                commandLine("./gradlew", "spotlessApply")
-            }
-        }
-    }
     tasks.named("build") {
-        dependsOn("runSpotlessApply")
+        dependsOn("spotlessApply")
     }
 
     spotless {
@@ -64,16 +56,5 @@ allprojects {
         kotlinGradle {
             ktlint(libs.versions.ktlint.get())
         }
-    }
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "17"
     }
 }

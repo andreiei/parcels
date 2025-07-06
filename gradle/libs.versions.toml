@@ -5,7 +5,6 @@ kotest = "5.9.1"
 kotlinxSerialization = "1.6.3"
 annotations = "24.1.0"
 mockk = "1.14.2"
-netty = "4.2.1.Final"
 kotlinSnapshot = "2.3.0"
 
 [plugins]
@@ -23,17 +22,8 @@ serialization-kotlinx-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
 
-aws-lambda-java-core = { group = "com.amazonaws", name = "aws-lambda-java-core", version = "1.2.3" }
-aws-lambda-java-events = { group = "com.amazonaws", name = "aws-lambda-java-events", version = "3.15.0" }
-
-netty = { group = "io.netty", name = "netty-codec-http", version.ref = "netty" }
-
 test-kotest-assertions-shared = { group = "io.kotest", name = "kotest-assertions-shared-jvm", version.ref = "kotest" }
 test-kotest-common = { group = "io.kotest", name = "kotest-common-jvm", version.ref = "kotest" }
 test-kotest-framework-api = { group = "io.kotest", name = "kotest-framework-api-jvm", version.ref = "kotest" }
 test-kotest-runner = { group = "io.kotest", name = "kotest-runner-junit5-jvm", version.ref = "kotest" }
 test-snapshot = { group = "com.karumi.kotlinsnapshot", name = "core", version.ref = "kotlinSnapshot" }
-
-mockk-jvm = { group = "io.mockk", name = "mockk-jvm", version.ref = "mockk" }
-mockk-dsl-jvm = { group = "io.mockk", name = "mockk-dsl-jvm", version.ref = "mockk" }
-
