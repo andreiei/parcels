@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.spotless) apply true
     alias(libs.plugins.cutterslade.analyze) apply true
     alias(libs.plugins.kotlin.serialization) apply true
+    application
 }
 
 repositories {
@@ -13,48 +14,67 @@ repositories {
 }
 
 dependencies {
-    permitUnusedDeclared(libs.kotlin.stdlib)
+    implementation(libs.kotlin.stdlib)
     permitUnusedDeclared(libs.kotlin.stdlib.jdk8)
+
+    implementation(libs.annotations)
+    implementation(libs.serialization.kotlinx.core.jvm)
+    implementation(libs.serialization.kotlinx.json)
+    implementation(libs.commons.validator)
+
+    testImplementation(libs.test.kotest.common)
+    permitTestUnusedDeclared(libs.test.kotest.common)
+    testImplementation(libs.test.kotest.framework.api)
+    testImplementation(libs.test.kotest.runner)
+    permitTestUnusedDeclared(libs.test.kotest.runner)
+    testImplementation(libs.test.snapshot)
 }
 
-allprojects {
-    apply(plugin = "com.diffplug.spotless")
-    apply(plugin = "ca.cutterslade.analyze")
-    apply(plugin = "org.jetbrains.kotlin.jvm")
-    apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}
 
-    repositories {
-        mavenCentral()
+application {
+    mainClass.set("MainKt")
+}
+
+tasks.withType<Jar> {
+    manifest {
+        println(project.group)
+        attributes("Main-Class" to "MainKt")
     }
+    isZip64 = true
+    from(configurations.runtimeClasspath.map { config -> config.map { if (it.isDirectory) it else zipTree(it) } })
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
 
+kotlin {
+    jvmToolchain(17)
+}
+
+tasks.withType<KotlinCompile>().all {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
+    }
+}
+tasks.withType<Test> {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+        showStackTraces = true
+        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+    }
+}
+
+tasks.named("build") {
+    dependsOn("spotlessApply")
+}
+
+spotless {
     kotlin {
-        jvmToolchain(17)
+        ktlint(libs.versions.ktlint.get())
     }
-
-    tasks.withType<KotlinCompile>().all {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
-    tasks.withType<Test> {
-        useJUnitPlatform()
-        testLogging {
-            events("passed", "skipped", "failed")
-            showStackTraces = true
-            exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-        }
-    }
-
-    tasks.named("build") {
-        dependsOn("spotlessApply")
-    }
-
-    spotless {
-        kotlin {
-            ktlint(libs.versions.ktlint.get())
-        }
-        kotlinGradle {
-            ktlint(libs.versions.ktlint.get())
-        }
+    kotlinGradle {
+        ktlint(libs.versions.ktlint.get())
     }
 }

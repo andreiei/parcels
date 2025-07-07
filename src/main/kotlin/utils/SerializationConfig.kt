@@ -1,4 +1,4 @@
-package com.domains.utils
+package utils
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer

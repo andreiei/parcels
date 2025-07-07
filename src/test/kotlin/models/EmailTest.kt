@@ -1,10 +1,10 @@
-package com.domains.models
+package models
 
-import com.domains.shouldMatchSnapshot
-import io.kotest.core.spec.style.FreeSpec
+import io.kotest.core.spec.style.ShouldSpec
+import utils.shouldMatchSnapshot
 
-class EmailTest : FreeSpec({
-    "should validate domain" {
+class EmailTest : ShouldSpec({
+    should("validate domains") {
         listOf(
             "peter@domain.com",
             "peter@sub-domain.domain.com",
@@ -15,9 +15,9 @@ class EmailTest : FreeSpec({
             "peter@-domain.com",
         )
             .associateWith { domain ->
-                when (Email.from(domain)?.value) {
-                    null -> "Invalid"
-                    else -> "valid"
+                when (Email.from(domain)) {
+                    null -> "❌"
+                    else -> "✅"
                 }
             }
             .shouldMatchSnapshot(this)

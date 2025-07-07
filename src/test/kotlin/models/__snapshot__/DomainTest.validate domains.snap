@@ -1,0 +1,9 @@
+{
+    "domain.com": "✅",
+    "subdomain.domain.com": "✅",
+    "sub-domain.domain.com": "✅",
+    "domain": "❌",
+    "@domain": "❌",
+    "domain..com": "❌",
+    "peter@-domain.com": "❌"
+}

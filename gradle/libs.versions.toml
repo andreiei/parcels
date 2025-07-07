@@ -4,7 +4,6 @@ ktlint = "0.50.0"
 kotest = "5.9.1"
 kotlinxSerialization = "1.6.3"
 annotations = "24.1.0"
-mockk = "1.14.2"
 kotlinSnapshot = "2.3.0"
 
 [plugins]
@@ -16,13 +15,11 @@ spotless = { id = "com.diffplug.spotless", version = "6.25.0" }
 [libraries]
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
-
 serialization-kotlinx-core-jvm = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core-jvm", version.ref = "kotlinxSerialization" }
 serialization-kotlinx-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json-jvm", version.ref = "kotlinxSerialization" }
-
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
+commons-validator = { group = "commons-validator", name = "commons-validator", version = "1.7" }
 
-test-kotest-assertions-shared = { group = "io.kotest", name = "kotest-assertions-shared-jvm", version.ref = "kotest" }
 test-kotest-common = { group = "io.kotest", name = "kotest-common-jvm", version.ref = "kotest" }
 test-kotest-framework-api = { group = "io.kotest", name = "kotest-framework-api-jvm", version.ref = "kotest" }
 test-kotest-runner = { group = "io.kotest", name = "kotest-runner-junit5-jvm", version.ref = "kotest" }

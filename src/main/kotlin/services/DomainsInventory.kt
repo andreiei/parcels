@@ -1,6 +1,7 @@
-package com.domains
+package services
 
-import com.domains.models.Domain
+import kotlinx.serialization.Serializable
+import models.Domain
 
 /**
  * DomainsInventory is a collection that tracks the occurrence of domains.
@@ -27,6 +28,7 @@ class DomainsInventory {
     }
 
     companion object {
+        @Serializable
         data class DomainsCount(
             val domain: Domain,
             val count: Int,

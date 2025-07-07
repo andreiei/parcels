@@ -1,6 +1,9 @@
-package com.domains.models
+package models
+
+import kotlinx.serialization.Serializable
 
 @JvmInline
+@Serializable
 value class Domain private constructor(val value: String) {
     override fun toString(): String = value
 
@@ -10,5 +13,7 @@ value class Domain private constructor(val value: String) {
             val cleaned: String = raw.trim().lowercase()
             return if (domainRegex.matches(cleaned)) Domain(cleaned) else null
         }
+
+        fun getDomain(email: Email): Domain? = email.value.substringAfter('@').let { from(it) }
     }
 }

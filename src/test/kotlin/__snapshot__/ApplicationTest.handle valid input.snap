@@ -1,0 +1,4 @@
+{
+    "output": "Enter one email address per line (type 'exit' to finish)\n\nTop 2 domains\nhotmail.com 1\ngmail.com 1",
+    "error": "Invalid email: 'test@domain..com' — skipping."
+}
